@@ -15,9 +15,9 @@ luajit for wp8
 
 已知问题
   * arm可以编译，但是无法执行，问题在于
-  ** wp8仅仅支持thumb2指令，不支持arm指令，因此需要使用thumb2指令重写
-  ** 除了asm文件还有lj_bcdef.h需要按照thumb指令进行变化，除非修改lj_bcdef.h的结构
-  ***	lj_bc_ofs其实是每个函数的偏移量,可以使用dumpbin获取对应函数偏移量的地址
+  1. wp8仅仅支持thumb2指令，不支持arm指令，因此需要使用thumb2指令重写
+  2. 除了asm文件还有lj_bcdef.h需要按照thumb指令进行变化，除非修改lj_bcdef.h的结构
+	lj_bc_ofs其实是每个函数的偏移量,可以使用dumpbin获取对应函数偏移量的地址
 
   * 不支持FFI和JIT
-  ** JIT是一定不支持的
+	JIT是一定不支持的, 由于没有VirtualAlloc等函数
